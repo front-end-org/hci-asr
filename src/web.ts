@@ -12,5 +12,6 @@ export class HciAsrWeb extends WebPlugin implements HciAsrPlugin {
   }
   async sdkInit(options: InitOptions): Promise<{ value: string }> {
     console.log('sdkInit', options);
+    return { value: "success" };
   }
 }
