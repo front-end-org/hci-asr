@@ -14,6 +14,8 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`sdkInit(...)`](#sdkinit)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -33,5 +35,33 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
 --------------------
+
+
+### sdkInit(...)
+
+```typescript
+sdkInit(options: InitOptions) => Promise<{ value: string; }>
+```
+
+| Param         | Type                                                |
+| ------------- | --------------------------------------------------- |
+| **`options`** | <code><a href="#initoptions">InitOptions</a></code> |
+
+**Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### InitOptions
+
+| Prop         | Type                |
+| ------------ | ------------------- |
+| **`appKey`** | <code>string</code> |
+| **`secret`** | <code>string</code> |
+| **`sysUrl`** | <code>string</code> |
+| **`capUrl`** | <code>string</code> |
 
 </docgen-api>
