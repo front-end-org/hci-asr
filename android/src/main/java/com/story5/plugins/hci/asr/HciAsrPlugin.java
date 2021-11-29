@@ -19,4 +19,13 @@ public class HciAsrPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void sdkInit(PluginCall call) {
+        String appKey = call.getString("appKey");
+        String secret = call.getString("secret");
+        String sysUrl = call.getString("sysUrl");
+        String capUrl = call.getString("capUrl");
+        call.resolve();
+    }
 }
