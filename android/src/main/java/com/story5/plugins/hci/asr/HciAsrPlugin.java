@@ -73,7 +73,7 @@ public class HciAsrPlugin extends Plugin {
         call.resolve();
     }
 
-    @PluginMethod()
+    @PluginMethod(returnType = PluginMethod.RETURN_NONE)
     public void record(PluginCall call) {
         Toast.makeText(getActivity(), "record", Toast.LENGTH_SHORT).show();
 
