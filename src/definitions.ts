@@ -1,5 +1,8 @@
 export interface HciAsrPlugin {
   echo(options: { value: string }): Promise<{ value: string }>;
+  /**
+   * @since 0.0.1
+   */
   sdkInit(options: InitOptions): Promise<{ value: string }>;
 }
 
