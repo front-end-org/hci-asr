@@ -7,8 +7,8 @@ import type {
 
 export class HciAsrWeb extends WebPlugin implements HciAsrPlugin {
   async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+    console.log('ECHO', JSON.stringify(options));
+    return { value: options.value + "HciAsrWeb plugin" };
   }
   async sdkInit(options: InitOptions): Promise<{ value: string }> {
     console.log('sdkInit', options);
