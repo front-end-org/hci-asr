@@ -1,6 +1,7 @@
 package com.story5.plugins.hci.asr;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -19,6 +20,7 @@ public class HciAsrPlugin extends Plugin {
     public void load() {
         super.load();
         Log.d(TAG, "load: ");
+        Toast.makeText(getActivity(), "android HciAsrPlugin load", Toast.LENGTH_SHORT).show();
     }
 
     @PluginMethod

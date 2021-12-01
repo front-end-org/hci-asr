@@ -49,6 +49,8 @@ sdkInit(options: InitOptions) => Promise<{ value: string; }>
 
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
 
+**Since:** 0.0.1
+
 --------------------
 
 
