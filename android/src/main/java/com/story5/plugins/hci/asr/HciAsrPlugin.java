@@ -1,15 +1,19 @@
 package com.story5.plugins.hci.asr;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResult;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PermissionState;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.ActivityCallback;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
@@ -50,6 +54,8 @@ public class HciAsrPlugin extends Plugin {
 
     @PluginMethod
     public void echo(PluginCall call) {
+        Toast.makeText(getActivity(), "android echo", Toast.LENGTH_SHORT).show();
+
         String value = call.getString("value");
         Log.d(TAG, "echo: " + value);
         JSObject ret = new JSObject();
@@ -69,20 +75,39 @@ public class HciAsrPlugin extends Plugin {
 
     @PluginMethod()
     public void record(PluginCall call) {
+        Toast.makeText(getActivity(), "record", Toast.LENGTH_SHORT).show();
+
         if (getPermissionState("microphone") != PermissionState.GRANTED) {
             requestPermissionForAlias("microphone", call, "microphonePermsCallback");
         } else {
-            loadCamera(call);
+            startRecord(call);
         }
     }
 
     @PermissionCallback
     private void microphonePermsCallback(PluginCall call) {
         if (getPermissionState("microphone") == PermissionState.GRANTED) {
-            loadCamera(call);
+            startRecord(call);
         } else {
             call.reject("Permission is required to microphone");
         }
+    }
+
+    private void startRecord(PluginCall call) {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+
+        // Start the Activity for result using the name of the callback method
+        startActivityForResult(call, intent, "pickImageResult");
+    }
+
+    @ActivityCallback
+    private void pickImageResult(PluginCall call, ActivityResult result) {
+        if (call == null) {
+            return;
+        }
+
+        // Do something with the result data
     }
 
     @PluginMethod

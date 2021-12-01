@@ -8,6 +8,7 @@ export interface HciAsrPlugin {
    * @since 0.0.1
    */
   sdkInit(options: InitOptions): Promise<{ value: string }>;
+  record(): void;
 }
 
 export interface InitOptions {

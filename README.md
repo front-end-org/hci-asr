@@ -14,8 +14,12 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`checkPermissions()`](#checkpermissions)
+* [`requestPermissions()`](#requestpermissions)
 * [`sdkInit(...)`](#sdkinit)
+* [`record()`](#record)
 * [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
 
 </docgen-index>
 
@@ -37,6 +41,28 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 --------------------
 
 
+### checkPermissions()
+
+```typescript
+checkPermissions() => Promise<PermissionStatus>
+```
+
+**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+
+--------------------
+
+
+### requestPermissions()
+
+```typescript
+requestPermissions() => Promise<PermissionStatus>
+```
+
+**Returns:** <code>Promise&lt;<a href="#permissionstatus">PermissionStatus</a>&gt;</code>
+
+--------------------
+
+
 ### sdkInit(...)
 
 ```typescript
@@ -54,7 +80,26 @@ sdkInit(options: InitOptions) => Promise<{ value: string; }>
 --------------------
 
 
+### record()
+
+```typescript
+record() => void
+```
+
+--------------------
+
+
 ### Interfaces
+
+
+#### PermissionStatus
+
+| Prop                       | Type                                                        |
+| -------------------------- | ----------------------------------------------------------- |
+| **`access_network_state`** | <code><a href="#permissionstate">PermissionState</a></code> |
+| **`internet`**             | <code><a href="#permissionstate">PermissionState</a></code> |
+| **`microphone`**           | <code><a href="#permissionstate">PermissionState</a></code> |
+| **`storage`**              | <code><a href="#permissionstate">PermissionState</a></code> |
 
 
 #### InitOptions
@@ -65,5 +110,13 @@ sdkInit(options: InitOptions) => Promise<{ value: string; }>
 | **`secret`** | <code>string</code> |
 | **`sysUrl`** | <code>string</code> |
 | **`capUrl`** | <code>string</code> |
+
+
+### Type Aliases
+
+
+#### PermissionState
+
+<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
 
 </docgen-api>

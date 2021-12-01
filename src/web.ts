@@ -29,4 +29,7 @@ export class HciAsrWeb extends WebPlugin implements HciAsrPlugin {
     console.log('sdkInit', options);
     return { value: "success" };
   }
+  async record(): Promise<{ state: string }> {
+    throw this.unimplemented('Not implemented on web.');
+  }
 }
