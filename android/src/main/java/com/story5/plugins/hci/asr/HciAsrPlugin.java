@@ -41,7 +41,7 @@ import com.getcapacitor.annotation.PermissionCallback;
 )
 public class HciAsrPlugin extends Plugin {
 
-    private String TAG = "HciAsrPlugin";
+    private static final String TAG = "HciAsrPlugin";
 
     private HciAsr implementation = new HciAsr();
 
