@@ -7,8 +7,25 @@ export interface HciAsrPlugin {
   /**
    * @since 0.0.1
    */
-  sdkInit(options: InitOptions): Promise<{ value: string }>;
-  record(): Promise<void>;
+  sdkInit(options: InitOptions): Promise<PromiseResult>;
+  createRecorder(second: number): Promise<PromiseResult>;
+  startRecord(): Promise<{
+    success: boolean;
+  }>;
+  stopRecord(cancel: boolean): Promise<PromiseResult>;
+  startRecognize(language: RecognizeLanguage): Promise<PromiseResult>;
+  cancelRecognize(): Promise<PromiseResult>;
+}
+
+export interface PromiseResult {
+  success: boolean;
+  message?: string;
+  result?: any;
+}
+
+export enum RecognizeLanguage {
+  chinese = 'cn_16k_common',
+  shanghai = 'x-shanghai_16k_common',
 }
 
 export interface InitOptions {

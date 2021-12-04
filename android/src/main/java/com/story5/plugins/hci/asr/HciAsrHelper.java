@@ -16,6 +16,7 @@ import java.io.File;
 
 public class HciAsrHelper {
     static private HciAudioManager am; // 单例模式
+    public static final int recorderOptions = AudioRecorder.ENABLE_AEC | AudioRecorder.ENABLE_NS;
 
     public static ShortAudioConfig createShortAudioConfig(String property) {
         ShortAudioConfig config = new ShortAudioConfig();
