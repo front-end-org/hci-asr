@@ -62,19 +62,7 @@ public class HciAsrPlugin extends Plugin implements IAudioRecorderHandler {
     @Override
     public void load() {
         super.load();
-        Log.d(TAG, "load: ");
-        Toast.makeText(getActivity(), "android HciAsrPlugin load", Toast.LENGTH_SHORT).show();
-    }
-
-    @PluginMethod
-    public void echo(PluginCall call) {
-        Toast.makeText(getActivity(), "android echo", Toast.LENGTH_SHORT).show();
-
-        String value = call.getString("value");
-        Log.d(TAG, "echo: " + value);
-        JSObject ret = new JSObject();
-        ret.put("value", value + "android HciAsrPlugin");
-        call.resolve(ret);
+        Log.d(TAG, "load: android-HciAsrPlugin");
     }
 
     @PluginMethod

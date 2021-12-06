@@ -1,7 +1,6 @@
 import type { PermissionState } from '@capacitor/core';
 
 export interface HciAsrPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
   checkPermissions(): Promise<PermissionStatus>;
   requestPermissions(): Promise<PermissionStatus>;
   /**

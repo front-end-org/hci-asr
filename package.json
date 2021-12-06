@@ -1,6 +1,6 @@
 {
   "name": "hci-asr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "capacitor plugin for hci-asr",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
